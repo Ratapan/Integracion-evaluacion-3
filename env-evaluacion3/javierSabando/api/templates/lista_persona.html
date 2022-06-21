@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block title %} Lista {% endblock title %} {% block header %}
+<h1 class="header__title">Lista</h1>
+{% endblock %} {% block main %}
+<div class="main__box">
+  <div class="main__list">
+    {% if object_list %}
+    <div class="main__list-item">
+      <div class="main__list-item-headers"><h3 >Nombre</h3></div>
+      <div class="main__list-item-headers"><h3>Edad</h3></div>
+      <div class="main__list-item-headers"><h3>Sexo</h3></div>
+      <div class="main__list-item-headers"><h3>Telefono</h3></div>
+    </div>
+    {% for person in object_list %}
+    <div class="main__list-item">
+      <div class="main__list-item-body">
+        <p>
+          {{ person.nombre }} {{ person.apellido }}
+        </p>
+      </div>
+      <div class="main__list-item-body">
+        <p>{{ person.edad }}</p>
+      </div>
+      <div class="main__list-item-body">
+        <p>{{ person.sexo }}</p>
+      </div>
+      <div class="main__list-item-body">
+        <p>{{ person.telefono }}</p>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <div class="main__list-item">No existen resultados</div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
